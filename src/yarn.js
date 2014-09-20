@@ -1,18 +1,19 @@
 ﻿/**
- * Human-friendly string handling operations.
+ * I am Yarn, Human-friendly string relations.
  * Dependencies : none, but RequireJS is highly recommended. If you don't have requirejs,
  * yarn is attached to window.define.yarn.
  * @author : Shukri Adams <shukri.adams@gmail.com>
  * @link : https://github.com/shukriadams/yarn
  */
 
-// use requireJs or shim define on window.
+// use requireJs or shim define on window
 var define = define || function(mod, req, call){if(window){window.define[mod]=call();}};
 define('yarn', [], function () {
 
     "use strict";
 
     var yarn = {};
+
 
     /**
      * Returns a substring after the last occurrence of a given preceding string.
@@ -27,6 +28,35 @@ define('yarn', [], function () {
             return "";
 
         return main.substring(main.lastIndexOf(sub) + sub.length);
+    };
+
+
+    /**
+     * Safely combines two parts of a url.
+     */
+    yarn.urlCombine = function (part1, part2) {
+        part1 = part1.replace(/\/+$/gm, '');
+        part2 = part2.replace(/^\/+/gm, '');
+        return part1 + "/" + part2;
+    };
+
+
+    /**
+     * C#-style string.format. Doesn't change String prototype.
+     * Use : yarn.fmt("a{0}c", "b") > "abc"
+     * Credits : http://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format
+     */
+    yarn.format = function (string) {
+        var formatted = string;
+        if (arguments.length > 1){
+            for (var i = 0; i < arguments.length; i++) {
+                if (i == 0)
+                    continue;
+                var regexp = new RegExp('\\{' + i + '\\}', 'gi');
+                formatted = formatted.replace(regexp, arguments[i]);
+            }
+        }
+        return formatted;
     };
 
 
