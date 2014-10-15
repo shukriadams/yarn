@@ -43,7 +43,7 @@ define('yarn', [], function () {
 
     /**
      * C#-style string.format. Doesn't change String prototype.
-     * Use : yarn.fmt("a{0}c", "b") > "abc"
+     * Use : yarn.format("a{0}c", "b") > "abc"
      * Credits : http://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format
      */
     yarn.format = function (string) {
@@ -52,7 +52,7 @@ define('yarn', [], function () {
             for (var i = 0; i < arguments.length; i++) {
                 if (i == 0)
                     continue;
-                var regexp = new RegExp('\\{' + i + '\\}', 'gi');
+                var regexp = new RegExp('\\{' + (i - 1) + '\\}', 'gi');
                 formatted = formatted.replace(regexp, arguments[i]);
             }
         }
