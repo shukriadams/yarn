@@ -113,6 +113,14 @@ define('yarn', [], function () {
     /**
      * Returns true if string ends with substring
      */
+    yarn.startsWith = function (main, sub) {
+        return main.indexOf(sub) === 0;
+    };
+
+
+    /**
+     * Returns true if string ends with substring
+     */
     yarn.endsWith = function (main, sub) {
         return main.indexOf(sub, main.length - sub.length) !== -1;
     };
