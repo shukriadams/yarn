@@ -1,6 +1,6 @@
 {
   "name": "yarn",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "src/yarn-es6.js",
   "license": "MIT",
   "dependencies": {}
