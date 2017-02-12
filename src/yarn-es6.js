@@ -4,7 +4,7 @@ export default {
     /**
      * Returns everything in main after sub
      */
-    yarn.returnAfter (main, sub){
+    returnAfter (main, sub){
 
         if (!main || !sub)
             throw 'Empty input';
