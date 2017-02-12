@@ -61,6 +61,21 @@ define('yarn', [], function () {
 
 
     /**
+     * Returns everything in main up to sub
+     */
+    yarn.returnUpto = function(main, sub){
+
+        if (!main || !sub)
+            throw 'Empty input';
+
+        if (main.indexOf(sub) == -1)
+            throw 'Sub does not occur in main';
+
+        return main.substr(0, main.indexOf(sub));
+    }
+
+
+    /**
      * Returns a substring leadingup to the last occurrence of a given preceding string.
      */
     yarn.returnUptoLast = function (main, sub) {
