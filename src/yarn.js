@@ -14,6 +14,23 @@ define('yarn', [], function () {
 
     var yarn = {};
 
+    /**
+     * Returns everything in main after sub
+     */
+    yarn.returnAfter = function(main, sub){
+
+        if (!main || !sub)
+            throw 'Empty input';
+
+        if (main.indexOf(sub) == -1)
+            throw 'Sub does not occur in main';
+
+        var startPosition = main.indexOf(sub) + sub.length,
+            returnLength = main.length - startPosition;
+
+        return main.substr(startPosition, returnLength);
+    };
+
 
     /**
      * Returns a substring after the last occurrence of a given preceding string.

@@ -1,5 +1,24 @@
 export default {
 
+
+    /**
+     * Returns everything in main after sub
+     */
+    yarn.returnAfter (main, sub){
+
+        if (!main || !sub)
+            throw 'Empty input';
+
+        if (main.indexOf(sub) == -1)
+            throw 'Sub does not occur in main';
+
+        var startPosition = main.indexOf(sub) + sub.length,
+            returnLength = main.length - startPosition;
+
+        return main.substr(startPosition, returnLength);
+    },
+
+
     /**
      * Returns a substring after the last occurrence of a given preceding string.
      */
@@ -13,7 +32,7 @@ export default {
             return "";
 
         return main.substring(main.lastIndexOf(sub) + sub.length);
-    }
+    },
 
 
     /**
@@ -23,7 +42,7 @@ export default {
         part1 = part1.replace(/\/+$/gm, '');
         part2 = part2.replace(/^\/+/gm, '');
         return part1 + "/" + part2;
-    }
+    },
 
 
     /**
@@ -42,7 +61,7 @@ export default {
             }
         }
         return formatted;
-    }
+    },
 
 
     /**
@@ -57,7 +76,7 @@ export default {
             throw 'Sub does not occur in main';
 
         return main.substr(0, main.indexOf(sub));
-    }
+    },
 
 
     /**
@@ -74,7 +93,7 @@ export default {
 
         // if reaches here, proceed to find desired substring
         return main.substring(0, main.lastIndexOf(sub));
-    }
+    },
 
 
     /**
@@ -84,7 +103,7 @@ export default {
         while (s.indexOf(replace) != -1)
             s = s.replace(replace, wth);
         return s;
-    }
+    },
 
 
     /**
@@ -107,7 +126,7 @@ export default {
                 return main.substring(startPosition, endPosition);
             }
         }
-    }
+    },
 
 
     /**
@@ -115,7 +134,7 @@ export default {
      */
     startsWith (main, sub) {
         return main.indexOf(sub) === 0;
-    }
+    },
 
 
     /**
