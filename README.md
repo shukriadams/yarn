@@ -1,4 +1,4 @@
 yarn
 ====
 
-String parsing utility belt for yumans.
+Simple, human-readable string manipulation/reading.

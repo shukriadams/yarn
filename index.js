@@ -18,7 +18,7 @@ yarn.returnAfter = function(main, sub){
         returnLength = main.length - startPosition;
 
     return main.substr(startPosition, returnLength);
-}
+};
 
 
 /**
@@ -78,7 +78,34 @@ yarn.returnUpto = function(main, sub){
         return '';
 
     return main.substr(0, main.indexOf(sub));
-}
+};
+
+
+/**
+ * Returns everything in main up to the nth occurrence of sub. N should be 1 or higher.
+ */
+yarn.returnUptoNth = function(main, sub, n)
+{
+    if (!main || !sub || n < 1)
+        return '';
+
+    var subPosition = -1,
+        output = '',
+        occurrences = 0;
+
+    while(occurrences < n){
+        subPosition = main.indexOf(sub, subPosition + 1);
+        if (subPosition === -1)
+            break;
+        occurrences ++;
+    }
+
+    if (occurrences === n && subPosition !== -1){
+        output = main.substr(0, subPosition);
+    }
+
+    return output;
+};
 
 
 /**

@@ -1,6 +1,6 @@
 {
   "name": "yarn",
-  "version" : "0.0.3",
+  "version" : "0.0.5",
   "description" : "Human-friendly string parsing utility belt.",
   "repository" : {
     "type" : "git",
