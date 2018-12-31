@@ -1,6 +1,16 @@
 export default {
 
+     /**
+     * Clips an amount of characters from the end of a string
+     */
+    clipFromEnd: function(string, amount){
+        if (!string || !amount || amount < 0 || amount > string.length)
+            return '';
 
+        return string.substr(0, string.length - amount);
+    },
+
+    
     /**
      * Returns everything in main after sub
      */
